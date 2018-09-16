@@ -1,5 +1,7 @@
 # Brackets-Kaede
 
+<img src="img/cap1.jpg" alt="Brackets-Kaede">
+
 ■Explanation of English
 
 "Brackets-Kaede" is a customization theme plug-in that can be used with the source code editor "Brackets".
@@ -15,5 +17,3 @@ By the way, this theme is an informal theme.
 いちから株式会社所属のバーチャルライバー樋口楓さんをモデルに作っており、エディタ画面の色は、キャラのイメージカラーに近しいオレンジっぽい色を選びました。
 
 ※ちなみに当テーマは非公式テーマです。
-
-<img src="img/cap1.jpg" alt="Brackets-Kaede">
