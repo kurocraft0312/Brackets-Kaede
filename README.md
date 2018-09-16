@@ -2,6 +2,8 @@
 
 <img src="img/cap1.jpg" alt="Brackets-Kaede">
 
+## Overview（概要）
+
 ■Explanation of English
 
 "Brackets-Kaede" is a customization theme plug-in that can be used with the source code editor "Brackets".
