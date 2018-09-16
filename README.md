@@ -1,6 +1,6 @@
 # Brackets-Kaede
 
-<img src="img/cap1.jpg" alt="Brackets-Kaede">
+<img src="img/cap.jpg" alt="Brackets-Kaede">
 
 ## Overview（概要）
 
