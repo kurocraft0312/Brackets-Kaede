@@ -1,0 +1,192 @@
+// Copyright (c) 2014 - present Adobe Systems Incorporated. All rights reserved.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the "Software"),
+// to deal in the Software without restriction, including without limitation
+// the rights to use, copy, modify, merge, publish, distribute, sublicense,
+// and/or sell copies of the Software, and to permit persons to whom the
+// Software is furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+// FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+// DEALINGS IN THE SOFTWARE.
+
+// Style definitions are from
+// https://github.com/chriskempson/tomorrow-theme/tree/master/Brackets
+
+/*
+* Brackets Default Theme
+*
+* Defines all the variables that one can configure in a theme. This should
+* contain all variables / mixins for UI styling that we want to be able to
+* change in a theme.
+*
+* Throughout the rest of the LESS files we should _only_ use color
+* variable names that are on the LHS of the list below. So, if we
+* need a new color for some UI element, we should add a variable
+* in this file.
+*/
+
+/* Define some variables used in multiple places(変数で一気に色指定できる) */
+@background: #FED6C3;//デフォルト：#1d1f21
+@background-img:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAArAAAAIECAYAAADhHx3VAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA3hpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQyIDc5LjE2MDkyNCwgMjAxNy8wNy8xMy0wMTowNjozOSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0iQjkwNzIzREZFOTRBREVFRTk0QkRBMUEyMzIxMTc0N0QiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NTNCMjI1NzVCMjhDMTFFOEIxODRDNDk5OUM1M0VFQjQiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NTNCMjI1NzRCMjhDMTFFOEIxODRDNDk5OUM1M0VFQjQiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTggKFdpbmRvd3MpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6OTc5YmE0ZGMtZjY3Yy0wNDQ1LWFjMWMtYTU0OWU1MDc5Y2NlIiBzdFJlZjpkb2N1bWVudElEPSJhZG9iZTpkb2NpZDpwaG90b3Nob3A6NjY0YTFhYTktZGI2NC01ZDQwLWFkOTAtNjgxZjllYTI3Njg4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);
+@foreground: #1d1f21;//デフォルト：#ddd
+
+/* Code Styling */
+
+.CodeMirror, .CodeMirror-scroll {//エディタメイン画面
+    background-color: @background;
+    background-image: @background-img;
+    background-position:100% 100%;//left（左） topの順
+    background-repeat:no-repeat;
+    color: @foreground;//@文字列「;」「｛｝（カッコ）」などの色
+}
+
+.CodeMirror-focused .CodeMirror-activeline-background {
+    background: #2f2f2f;//（デフォルト：#2f2f2f;）
+}
+
+.show-line-padding .CodeMirror-focused .CodeMirror-activeline-background {
+    box-shadow: inset 15px 0 0 0 #000;
+}
+
+.CodeMirror-focused .CodeMirror-activeline {
+    .CodeMirror-gutter-elt {
+        background: rgba(0, 0, 0, 0.2);
+        color: #fff;
+    }
+    .inline-widget .CodeMirror-gutter-elt {
+        color: #767676;
+    }
+}
+
+.cm-atom, .cm-string, .cm-string-2, .cm-hr {color: #d89333;}
+.cm-number, .cm-attribute, .cm-plus {color: #85a300;}
+.cm-def, .cm-property {color: #b77fdb;}
+.cm-variable, .cm-variable-2, .cm-variable-3, .cm-operator, .cm-meta, .cm-bracket {color: @foreground;}
+.cm-comment {color: #767676;}
+.cm-minus {color: #dc322f;}
+.cm-header {color: #d85896;}
+.cm-link {color: #b77fdb; text-decoration: none;}
+.cm-rangeinfo {color: #6c71c4;}
+.cm-keyword, .cm-qualifier, .cm-builtin, .cm-tag, .cm-quote {color: #6c9ef8;}
+.cm-error {color: #dc322f;}
+
+/* Extra CSS */
+
+.CodeMirror-searching {
+    background-color: #d3cd69;
+    &.searching-current-match {
+        background-color: #f6a644;
+    }
+}
+
+
+.CodeMirror-cursor {
+    border-left: 2px solid #ff7b00 !important;//マウスカーソルの線の大きさ・色変更（デフォルト：#c5c8c6）
+}
+
+.CodeMirror-gutters {
+    background-color: @background;
+    border-right: none;
+}
+
+.CodeMirror-linenumber {
+    color: #767676;
+}
+
+.CodeMirror .CodeMirror-selected {
+    background: #333f48;
+}
+.CodeMirror-focused .CodeMirror-selected {
+    background: #0050a0;
+}
+
+.CodeMirror-matchingbracket, .CodeMirror-matchingtag {
+    /* Ensure visibility against gray inline editor background */
+    background-color: #ffae00;//タグが正常に稼働しているコーディングの最中に自動で色付けされる色（デフォルト：#2e5c00）
+    color: @foreground !important;
+}
+
+.CodeMirror-overwrite .CodeMirror-cursor {
+    border-left: none !important;
+    border-bottom: 1px solid #fff;
+}
+
+/*
+CodeMirror's use of descendant selectors for certain styling causes problems when editors are
+nested because, for items in the inner editor, the left-hand clause in the selector will now
+match either the actual containing CodeMirror instance *OR* the outer "host" CodeMirror instance.
+TODO (issue #324): We'll still have problems if editors can be nested more than one level deep,
+or if any other descendant-selector-driven CM styles can differ between inner & outer editors
+(potential problem areas include line wrap and coloring theme: basically, anything in codemirror.css
+that uses a descandant selector where the CSS class name to the left of the space is something
+other than a vanilla .CodeMirror)
+*/
+.CodeMirror {
+    .CodeMirror {
+        background: transparent;
+    }
+
+    .CodeMirror .CodeMirror-gutters {
+        background: transparent;
+        border-right: none;
+    }
+
+    .CodeMirror .CodeMirror-activeline-background {
+        background: transparent;
+    }
+
+    .CodeMirror .CodeMirror-activeline .CodeMirror-gutter-elt {
+        background: transparent;
+        color: #767676;
+    }
+
+    .CodeMirror-focused .CodeMirror-activeline-background {
+        background: #2f2f2f;
+    }
+
+    .CodeMirror-focused .CodeMirror-activeline {
+        .CodeMirror-gutter-elt {
+            background: rgba(0, 0, 0, 0.2);
+            color: #fff;
+        }
+    }
+}
+
+.CodeMirror-foldgutter-open:after {
+    color: #666;//インデントの親要素を区分する▼の色
+}
+.CodeMirror-foldgutter-folded:after {
+    color: #aaa;
+}
+
+.CodeMirror.over-gutter, .CodeMirror-activeline {
+    .CodeMirror-foldgutter-open:after {
+        color: #888;
+    }
+}
+
+.CodeMirror-foldmarker {
+    border-color: #000;
+    color: #ccc;
+    background-color: #444;
+}
+
+/* Non-editor styling */
+
+.image-view,
+.not-editor {
+    background-color: @background;
+}
+
+.view-pane .image-view {
+    color: @foreground;
+}
